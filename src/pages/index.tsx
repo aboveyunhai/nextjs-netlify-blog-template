@@ -7,6 +7,9 @@ import { SocialList } from "../components/SocialList";
 export default function Index() {
   return (
     <Layout>
+      <Head>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+      </Head>
       <BasicMeta url={"/"} />
       <OpenGraphMeta url={"/"} />
       <TwitterCardMeta url={"/"} />
