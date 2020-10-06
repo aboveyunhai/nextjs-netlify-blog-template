@@ -88,8 +88,7 @@ export default function Index({
             <Copyright />
           </footer>
         </div>
-        <style jsx>
-          {`
+        <style jsx>{`
             .container {
               display: block;
               max-width: 36rem;
@@ -130,8 +129,7 @@ export default function Index({
                 flex-direction: column;
               }
             }
-          `}
-        </style>
+          `}</style>
         <style global jsx>
           {`
             /* Syntax highlighting */
@@ -230,8 +228,7 @@ export default function Index({
             .language-css .token.property {
               color: #005cc5;
             }
-          `}
-        </style>
+          `}</style>
       </Layout>
     );
   };

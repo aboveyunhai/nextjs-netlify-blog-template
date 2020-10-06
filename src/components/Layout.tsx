@@ -1,10 +1,28 @@
 import Head from "next/head";
+import { useEffect, useRef } from "react";
 import Navigation from "./Navigation";
 
 type Props = {
   children: React.ReactNode;
 };
 export default function Layout({ children }: Props) {
+  const navRef = useRef(null);
+  useEffect(() => {
+    function handleScroll(){
+      if (window.scrollY > 10) {
+        navRef.current.classList.add("active");
+      } else {
+        navRef.current.classList.remove("active");
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    return (() => {
+      window.removeEventListener('scroll', handleScroll);
+    })
+  })
+
+
   return (
     <div className="root">
       <Head>
@@ -13,30 +31,56 @@ export default function Layout({ children }: Props) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#fff" />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
-      <nav>
+      <nav ref={navRef}>
         <Navigation />
       </nav>
       <main>{children}</main>
+      <style jsx global>{`
+        .flex-center {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      `}
+      </style>
       <style jsx>
         {`
           .root {
+            // display: block;
+            // display: flex;
+            // flex-direction: column;
+          }
+          nav {
+            position: fixed;
+            position: -webkit-sticky;
+            top: 0; /* required */
             display: block;
-            padding: 4rem 0;
-            box-sizing: border-box;
-            height: 100%;
+            padding: 10px 0;
+            background-color: #222;
+            width: 100%;
+            transition: all 800ms;
+          }
+          nav.active {
+            background-color: #222;
           }
           main {
-            display: flex;
-            min-height: 100%;
+            // display: flex;
+            // min-height: 100%;
           }
           @media (min-width: 769px) {
+            nav {
+              background-color: transparent;
+            }
             .root {
-              display: flex;
-              flex: 1 0 auto;
+              // display: flex;
+              // flex: 1 0 auto;
+              // flex-direction: row;
             }
             main {
-              flex: 1 0 auto;
+              // flex: 1 0 auto;
             }
           }
         `}

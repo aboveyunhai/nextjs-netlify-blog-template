@@ -3,7 +3,7 @@
 
 html,
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Verdana", "PingFangSC", "Ubuntu", sans-serif;
   background-color: #fff;
   color: #222;
   font-weight: 200;
@@ -40,4 +40,8 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.mb-1 {
+  margin-bottom: 3rem;
 }

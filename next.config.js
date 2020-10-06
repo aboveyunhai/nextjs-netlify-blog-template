@@ -11,6 +11,10 @@ module.exports = withMdxEnhanced({
     config.module.rules.push(
       ...[
         {
+          test: /\.md$/,
+          loader: 'frontmatter-markdown-loader',
+        },
+        {
           test: /\.yml$/,
           type: "json",
           use: "yaml-loader",

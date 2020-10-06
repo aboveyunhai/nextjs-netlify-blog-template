@@ -6,6 +6,17 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+    - label: "Home"
+      name: "home"
+      file: "content/home.md"
+      fields: 
+        - { label: "Title", name: "title", widget: "string"}
+        - { label: "Sub Title", name: "subTitle", widget: "string"}
+        - { label:  "Email", name: "email", widget: "string"}
+        - { label: "Phone Number", name: "tel", widget: "string"}
   - name: "config"
     label: "Config"
     delete: false
